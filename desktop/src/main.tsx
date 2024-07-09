@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
+import { ThemeProvider } from './context/theme';
+
 import { RouterProvider, createRouter } from '@tanstack/react-router';
 import { routeTree } from './routeTree.gen';
 
@@ -15,6 +17,8 @@ declare module '@tanstack/react-router' {
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <ThemeProvider storageKey='pix-theme' defaultTheme='light'>
+      <RouterProvider router={router} />
+    </ThemeProvider>
   </React.StrictMode>,
 );
